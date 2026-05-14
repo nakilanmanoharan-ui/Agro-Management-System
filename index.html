@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroHub - Agricultural Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🌾 AgroHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#crops">Crops</a></li>
+                <li><a href="#weather">Weather</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to AgroHub</h2>
+            <p>Your Complete Agricultural Management Solution</p>
+            <button class="btn btn-primary" onclick="scrollToSection('dashboard')">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2>Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <h3>Total Fields</h3>
+                    <p class="stat-number" id="totalFields">8</p>
+                    <small>Active Farms</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Crops</h3>
+                    <p class="stat-number" id="totalCrops">15</p>
+                    <small>Planted Crops</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Yield Expected</h3>
+                    <p class="stat-number" id="expectedYield">2400</p>
+                    <small>Quintals</small>
+                </div>
+                <div class="stat-card">
+                    <h3>Soil Health</h3>
+                    <p class="stat-number" id="soilHealth">85%</p>
+                    <small>Good Condition</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crops Management Section -->
+    <section id="crops" class="crops-section">
+        <div class="container">
+            <h2>Crops Management</h2>
+            <div class="crops-content">
+                <div class="crops-list">
+                    <h3>Your Crops</h3>
+                    <div id="cropsList" class="list-items">
+                        <!-- Crops will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="add-crop-form">
+                    <h3>Add New Crop</h3>
+                    <form id="cropForm">
+                        <input type="text" id="cropName" placeholder="Crop Name" required>
+                        <input type="text" id="cropVariety" placeholder="Variety" required>
+                        <input type="date" id="plantingDate" placeholder="Planting Date" required>
+                        <input type="date" id="harvestDate" placeholder="Expected Harvest Date" required>
+                        <input type="number" id="area" placeholder="Area (hectares)" required>
+                        <button type="submit" class="btn btn-primary">Add Crop</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section id="weather" class="weather-section">
+        <div class="container">
+            <h2>Weather Information</h2>
+            <div class="weather-grid">
+                <div class="weather-card">
+                    <h3>Today</h3>
+                    <div class="temperature">25°C</div>
+                    <p>Partly Cloudy</p>
+                    <small>Humidity: 65%</small>
+                </div>
+                <div class="weather-card">
+                    <h3>Tomorrow</h3>
+                    <div class="temperature">23°C</div>
+                    <p>Rainy</p>
+                    <small>Humidity: 80%</small>
+                </div>
+                <div class="weather-card">
+                    <h3>Day After Tomorrow</h3>
+                    <div class="temperature">26°C</div>
+                    <p>Sunny</p>
+                    <small>Humidity: 50%</small>
+                </div>
+                <div class="weather-card">
+                    <h3>Air Quality</h3>
+                    <div class="quality">Good</div>
+                    <p>AQI: 85</p>
+                    <small>Safe for farming</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inventory Section -->
+    <section id="inventory" class="inventory-section">
+        <div class="container">
+            <h2>Inventory Management</h2>
+            <div class="inventory-content">
+                <div class="inventory-list">
+                    <h3>Stock Items</h3>
+                    <div id="inventoryList" class="list-items">
+                        <!-- Inventory items will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="add-inventory-form">
+                    <h3>Add Inventory Item</h3>
+                    <form id="inventoryForm">
+                        <input type="text" id="itemName" placeholder="Item Name" required>
+                        <input type="text" id="itemCategory" placeholder="Category (Seeds, Fertilizer, Tools)" required>
+                        <input type="number" id="quantity" placeholder="Quantity" required>
+                        <input type="text" id="unit" placeholder="Unit (kg, liters, pieces)" required>
+                        <input type="number" id="cost" placeholder="Cost" required>
+                        <button type="submit" class="btn btn-primary">Add Item</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" class="reports-section">
+        <div class="container">
+            <h2>Reports & Analytics</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Monthly Yield Report</h3>
+                    <canvas id="yieldChart"></canvas>
+                    <button class="btn btn-secondary">Download</button>
+                </div>
+                <div class="report-card">
+                    <h3>Expense Tracker</h3>
+                    <canvas id="expenseChart"></canvas>
+                    <button class="btn btn-secondary">Download</button>
+                </div>
+                <div class="report-card">
+                    <h3>Crop Health Status</h3>
+                    <canvas id="healthChart"></canvas>
+                    <button class="btn btn-secondary">Download</button>
+                </div>
+                <div class="report-card">
+                    <h3>Field Productivity</h3>
+                    <canvas id="productivityChart"></canvas>
+                    <button class="btn btn-secondary">Download</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact & Support</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="info-item">
+                        <h4>📍 Address</h4>
+                        <p>Agricultural Research Center<br>Farmers Lane, Rural District</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>📞 Phone</h4>
+                        <p>+91-XXXX-XXXX-XX</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>✉️ Email</h4>
+                        <p>support@agrohub.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>⏰ Working Hours</h4>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat - Sun: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 AgroHub - Agricultural Management System. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" title="Facebook">Facebook</a>
+                <a href="#" title="Twitter">Twitter</a>
+                <a href="#" title="Instagram">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
